@@ -7,13 +7,13 @@ import common from "@/assets/gallery-common.jpg";
 import bed from "@/assets/gallery-bed.jpg";
 
 const images = [
-  { src: common, alt: "Common study lounge at Zam Zam Hostel", span: "md:col-span-2 md:row-span-2" },
-  { src: room3, alt: "3 sharing student room" },
-  { src: food, alt: "Home-style meals served at the hostel" },
-  { src: bed, alt: "Clean single bed with fresh linen" },
+  { src: common,  alt: "Common study lounge at Zam Zam Hostel",            span: "col-span-2 row-span-2 md:col-span-2 md:row-span-2" },
+  { src: room3,   alt: "3 sharing student room" },
+  { src: food,    alt: "Home-style meals served at the hostel" },
+  { src: bed,     alt: "Clean single bed with fresh linen" },
   { src: kitchen, alt: "Shared kitchen with refrigerator and washing machine" },
-  { src: room4, alt: "4 sharing student room with study desk" },
-  { src: room5, alt: "Affordable 5 sharing room" },
+  { src: room4,   alt: "4 sharing student room with study desk" },
+  { src: room5,   alt: "Affordable 5 sharing room" },
 ];
 
 export const Gallery = () => {
@@ -27,7 +27,27 @@ export const Gallery = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[140px] sm:auto-rows-[180px] gap-3 sm:gap-4">
+        {/* Mobile: simple 2-col grid */}
+        <div className="grid grid-cols-2 gap-3 sm:hidden">
+          {images.map((img, i) => (
+            <div
+              key={i}
+              className="relative overflow-hidden rounded-xl bg-secondary group reveal aspect-square"
+              style={{ transitionDelay: `${i * 50}ms` }}
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+          ))}
+        </div>
+
+        {/* Tablet & desktop: masonry-style grid */}
+        <div className="hidden sm:grid grid-cols-4 auto-rows-[160px] md:auto-rows-[180px] gap-3 sm:gap-4">
           {images.map((img, i) => (
             <div
               key={i}

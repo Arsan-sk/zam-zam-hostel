@@ -40,14 +40,14 @@ export const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto overflow-visible">
           {plans.map((p, i) => (
             <article
               key={p.name}
               className={cn(
                 "relative rounded-2xl p-6 sm:p-8 transition-all reveal flex flex-col",
                 p.popular
-                  ? "bg-gradient-primary text-primary-foreground shadow-elegant md:scale-105 md:-my-2 ring-4 ring-accent/30"
+                  ? "bg-gradient-primary text-primary-foreground shadow-elegant lg:scale-105 lg:-my-2 ring-4 ring-accent/30"
                   : "bg-card border border-border shadow-card hover:shadow-elegant"
               )}
               style={{ transitionDelay: `${i * 80}ms` }}

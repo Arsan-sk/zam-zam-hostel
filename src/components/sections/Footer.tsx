@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground/90 pt-12 pb-24 lg:pb-12">
       <div className="container">
-        <div className="grid sm:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2">
               <span className="grid place-items-center h-9 w-9 rounded-lg bg-accent text-accent-foreground font-display font-bold text-sm">
@@ -37,8 +37,21 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-primary-foreground/15 text-center text-xs text-primary-foreground/60">
-          © {new Date().getFullYear()} {HOSTEL.name}. All rights reserved.
+        <div className="mt-10 pt-6 border-t border-primary-foreground/15 flex flex-col items-center gap-1.5 text-center">
+          <p className="text-xs text-primary-foreground/60">
+            © {new Date().getFullYear()} {HOSTEL.name}. All rights reserved.
+          </p>
+          <p className="text-[11px] text-primary-foreground/35 tracking-wide">
+            Crafted by{" "}
+            <a
+              href="https://arsansk.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-foreground/50 hover:text-accent transition-colors duration-200 underline-offset-2 hover:underline"
+            >
+              Shaikh Mohd Arsan
+            </a>
+          </p>
         </div>
       </div>
     </footer>

@@ -92,19 +92,36 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  *,
+  *::before,
+  *::after {
+    @apply border-border box-border;
   }
+
+  /* Prevent horizontal scroll globally */
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+    /* Use dynamic viewport height for mobile browser chrome */
+    min-height: 100dvh;
+    overflow-x: hidden;
   }
+
   h1, h2, h3, h4 {
     font-family: 'Poppins', system-ui, sans-serif;
     @apply tracking-tight;
+  }
+
+  /* Responsive images — never overflow their container */
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -130,6 +147,8 @@
   .shadow-cta {
     box-shadow: var(--shadow-cta);
   }
+
+  /* Scroll reveal animation */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -139,12 +158,24 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* CTA pulse ring animation */
   .pulse-cta {
     animation: pulse-cta 2.4s ease-in-out infinite;
   }
+
+  /* Safe area padding for notched phones (iOS) */
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Fluid type scale — avoids too-large text on small screens */
+  .text-fluid-xl   { font-size: clamp(1.5rem,   4vw,  2.5rem); }
+  .text-fluid-2xl  { font-size: clamp(1.875rem, 5vw,  3rem); }
+  .text-fluid-hero { font-size: clamp(2rem,      6vw,  4rem); }
 }
 
 @keyframes pulse-cta {
   0%, 100% { box-shadow: 0 0 0 0 hsl(var(--call) / 0.5); }
-  50% { box-shadow: 0 0 0 14px hsl(var(--call) / 0); }
+  50%       { box-shadow: 0 0 0 14px hsl(var(--call) / 0); }
 }

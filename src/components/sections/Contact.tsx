@@ -16,7 +16,7 @@ export const Contact = () => {
             Beds are filling up fast. Call or WhatsApp now to check availability and reserve your spot.
           </p>
 
-          <div className="mt-10 grid sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto w-full px-4 sm:px-0">
             <a
               href={telHref}
               className="group flex items-center gap-4 p-5 rounded-2xl bg-call text-call-foreground shadow-cta hover:scale-[1.03] transition-transform"
