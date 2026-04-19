@@ -1,5 +1,5 @@
 import heroImg from "@/assets/hero-hostel.jpg";
-import { CTAButtons } from "./CTAButtons";
+import { CTAButtons } from "../CTAButtons";
 import { Sparkles } from "lucide-react";
 
 export const Hero = () => {
