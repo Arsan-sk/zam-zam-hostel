@@ -1,7 +1,8 @@
-import { UtensilsCrossed, WashingMachine, Refrigerator, Zap, Sparkles, ShieldCheck } from "lucide-react";
+import { UtensilsCrossed, Wifi, WashingMachine, Refrigerator, Zap, Sparkles, ShieldCheck } from "lucide-react";
 
 const facilities = [
   { icon: UtensilsCrossed, title: "Home-style Meals", desc: "Lunch & dinner available" },
+  { icon: Wifi, title: "High-speed WiFi", desc: "24/7 internet access" },
   { icon: WashingMachine, title: "Washing Machine", desc: "Free to use, anytime" },
   { icon: Refrigerator, title: "Refrigerator", desc: "Shared kitchen access" },
   { icon: Zap, title: "Electricity Included", desc: "No surprise bills" },
